@@ -1,0 +1,4 @@
+%_topdir %(echo $HOME)/rpmbuild
+%dist .el5
+%_smp_mflags -j3
+%_query_all_fmt %%{name}-%%{version}-%%{release}.%%{arch}
