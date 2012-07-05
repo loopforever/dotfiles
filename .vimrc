@@ -4,16 +4,20 @@ set tabstop=2
 set smarttab
 set shiftwidth=2
 set autoindent
-set expandtab
+"set expandtab
+set noexpandtab
 set backspace=indent,eol,start
 
 set number
 set paste
 set hlsearch
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+
 syntax on
 filetype on
 
-autocmd FileType make   set noexpandtab
+autocmd FileType make set noexpandtab
 autocmd FileType python set noexpandtab
 
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
