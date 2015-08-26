@@ -157,6 +157,11 @@ function randomstr {
     echo
 }
 
+if [[ $- == *i* ]]; then
+  [[ "$SSH_AGENT_PID" == "" ]] && eval `ssh-agent -s`
+  [ "$SSH_AGENT_PID" ] && (ssh-add -l | grep $USER > /dev/null || { echo "Adding identity to ssh-agent..."; ssh-add; })
+fi
+
 # My milkshake brings all the boys the yard...
 # (no, I don't know what that means...)
 source_if_exists ~/.fsroot/bootstrap/appropriate-environment
